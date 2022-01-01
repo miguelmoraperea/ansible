@@ -11,6 +11,7 @@
       - core
   tasks:
     - include: tasks/basic.yml
-    - include: tasks/productivity.yml
     - include: tasks/config.yml
+    - include: tasks/nvim.yml
+    - include: tasks/productivity.yml
     - include: tasks/slack.yml

@@ -1,0 +1,24 @@
+- name: Remove nvim
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/Desktop/git/neovim"
+  tags:
+    - nvim
+
+- name: Clone nvim
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/neovim"
+  tags:
+    - nvim
+
+- name: Build nvim
+  shell: "cd {{ lookup('env', 'HOME') }}/Desktop/git/neovim && make"
+  tags:
+    - nvim
+
+- name: Install nvim
+  become: true
+  shell: "cd {{ lookup('env', 'HOME') }}/Desktop/git/neovim && make install"
+  tags:
+    - nvim
