@@ -1,0 +1,23 @@
+- name: install basic tools
+  become: true
+  become_user: root
+  apt:
+    state: present
+    name:
+      - software-properties-common
+      - git
+      - make
+      - wget
+      - stow
+  tags:
+    - basic
+
+- name: uninstall basic tools
+  become: true
+  become_user: root
+  apt:
+    state: absent
+    name:
+      - stow
+  tags:
+    - clean_env

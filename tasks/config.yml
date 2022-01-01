@@ -1,0 +1,10 @@
+- name: Enviroment configuration
+  ansible.builtin.git:
+    repo: 'git@github.com:miguelmoraperea/config.git'
+    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/originals/config"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - config
