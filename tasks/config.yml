@@ -1,7 +1,7 @@
-- name: Enviroment configuration
+- name: Download config repository
   ansible.builtin.git:
-    repo: 'git@github.com:miguelmoraperea/config.git'
-    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/originals/config"
+    repo: 'https://github.com/miguelmoraperea/config.git'
+    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/config"
     recursive: yes
     update: yes
     accept_hostkey: yes
