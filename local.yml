@@ -17,6 +17,7 @@
     - include: tasks/basic.yml
     - include: tasks/config.yml
     - include: tasks/environment.yml
+    - include: tasks/git.yml
     - include: tasks/nvim.yml
     - include: tasks/productivity.yml
     - include: tasks/slack.yml
