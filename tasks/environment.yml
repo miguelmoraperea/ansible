@@ -19,3 +19,10 @@
     - i3blocks
   tags:
     - environment
+
+- name: Install fonts
+  become: true
+  become_user: root
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+  tags:
+    - environment
