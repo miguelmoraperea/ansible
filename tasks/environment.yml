@@ -20,9 +20,22 @@
   tags:
     - environment
 
-- name: Install fonts
-  become: true
-  become_user: root
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+- name: Download Nerd-Fonts repository
+  ansible.builtin.git:
+    repo: 'https://github.com/ryanoasis/nerd-fonts'
+    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/nerd-fonts"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
   tags:
     - environment
+    - fonts
+
+- name: Install JetBrains font
+  become: true
+  become_user: root
+  shell: /bin/bash -c "$(cd ~/Deskstop/git/nerd-fonts && ./install JetBrainsMono)"
+  tags:
+    - environment
+    - fonts
