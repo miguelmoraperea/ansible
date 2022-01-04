@@ -17,6 +17,19 @@
     - tmux
     - i3-wm
     - i3blocks
+    - suckless-tools
+  tags:
+    - environment
+
+
+- name: Download trueline repository
+  ansible.builtin.git:
+    repo: 'https://github.com/petobens/trueline'
+    dest: "{{ lookup('env', 'HOME') }}/Desktop/git/trueline"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
   tags:
     - environment
 
