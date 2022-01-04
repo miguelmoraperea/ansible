@@ -1,0 +1,17 @@
+- name: Add Alacritty repository
+  ansible.builtin.apt_repository:
+      repo:  ppa:aslatter/ppa
+      state: present
+  tags:
+    - environment
+
+- name: Install environment tools
+  apt:
+    state: present
+    name:
+    - alacritty
+    - tmux
+    - i3-wm
+    - i3blocks
+  tags:
+    - environment

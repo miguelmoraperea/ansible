@@ -1,11 +1,11 @@
-- name: install peek repository
+- name: Install peek repository
   ansible.builtin.apt_repository:
       repo:  ppa:peek-developers/stable
       state: present
   tags:
     - apt_repos
 
-- name: install productivity tools
+- name: Install productivity tools
   become: true
   become_user: root
   apt:
@@ -16,7 +16,7 @@
   tags:
     - productivity
 
-- name: uninstall productivity tools
+- name: Uninstall productivity tools
   become: true
   become_user: root
   apt:

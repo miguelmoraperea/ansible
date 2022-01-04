@@ -1,4 +1,13 @@
-- name: install basic tools
+- name: Add universe repository
+  become: true
+  become_user: root
+  ansible.builtin.apt_repository:
+      repo:  deb http://archive.ubuntu.com/ubuntu focal universe
+      state: present
+  tags:
+    - basic
+
+- name: Install basic tools
   become: true
   become_user: root
   apt:
@@ -12,7 +21,7 @@
   tags:
     - basic
 
-- name: uninstall basic tools
+- name: Uninstall basic tools
   become: true
   become_user: root
   apt:

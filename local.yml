@@ -7,11 +7,17 @@
       update_cache: true
       state: present
     tags:
-      - install
-      - core
+      - basic
+      - config
+      - environment
+      - nvim
+      - productivity
+      - slack
   tasks:
     - include: tasks/basic.yml
     - include: tasks/config.yml
+    - include: tasks/environment.yml
     - include: tasks/nvim.yml
     - include: tasks/productivity.yml
     - include: tasks/slack.yml
+    - include: tasks/virtualbox.yml

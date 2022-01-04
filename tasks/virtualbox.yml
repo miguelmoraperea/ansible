@@ -1,0 +1,10 @@
+- name: Install VirtualBox
+  become: true
+  become_user: root
+  apt:
+    state: present
+    name:
+      - virtualbox
+      - virtualbox-ext-pack
+  tags:
+    - virtualbox
