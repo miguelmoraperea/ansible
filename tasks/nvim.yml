@@ -12,6 +12,27 @@
   tags:
     - nvim
 
+- name: Install nvim prerequisites
+  become: true
+  become_user: root
+  apt:
+    state: present
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+      - doxygen
+  tags:
+    - nvim
+
 - name: Build nvim
   shell: "cd {{ lookup('env', 'HOME') }}/Desktop/git/neovim && make"
   tags:
