@@ -1,0 +1,5 @@
+- name: Install pyright
+  pip:
+    name: pyright
+  tags:
+    - lsp
