@@ -16,6 +16,7 @@
   tasks:
     - include: tasks/basic.yml
     - include: tasks/config.yml
+    - include: tasks/docker.yml
     - include: tasks/environment.yml
     - include: tasks/lsp.yml
     - include: tasks/git.yml

@@ -1,0 +1,63 @@
+- name: Remove Docker older versions
+  become: true
+  become_user: root
+  apt:
+    state: absent
+    name:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+  tags:
+    - docker
+
+- name: Install Docker prerequisites
+  become: true
+  become_user: root
+  apt:
+    state: present
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+  tags:
+    - docker
+
+- name: Add Docker GPG apt Key
+  become: true
+  become_user: root
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags:
+    - docker
+
+- name: Get this Linux distribution
+  command: lsb_release -sc
+  register: dist
+  tags:
+    - docker
+
+- name: Add Docker Repository
+  become: true
+  become_user: root
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu {{ dist.stdout }} focal stable
+    state: present
+  tags:
+    - docker
+
+- name: Install Docker
+  become: true
+  become_user: root
+  apt:
+    update_cache: yes
+    state: present
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+  tags:
+    - docker
