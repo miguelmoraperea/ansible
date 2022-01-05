@@ -1,9 +1,22 @@
 - name: Install peek repository
+  become: true
+  become_user: root
   ansible.builtin.apt_repository:
       repo:  ppa:peek-developers/stable
       state: present
   tags:
     - apt_repos
+    - productivity
+
+- name: Install shutter repository
+  become: true
+  become_user: root
+  ansible.builtin.apt_repository:
+      repo:  ppa:linuxuprising/shutter
+      state: present
+  tags:
+    - apt_repos
+    - productivity
 
 - name: Install productivity tools
   become: true
