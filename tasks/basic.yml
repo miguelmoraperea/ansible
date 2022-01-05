@@ -18,6 +18,7 @@
       - make
       - wget
       - stow
+      - python3-pip
   tags:
     - basic
 
