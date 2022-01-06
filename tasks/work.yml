@@ -1,0 +1,9 @@
+- name: Install graphviz
+  become: true
+  become_user: root
+  apt:
+    state: present
+    name:
+      - graphviz
+  tags:
+    - work
