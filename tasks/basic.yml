@@ -19,6 +19,7 @@
       - wget
       - stow
       - python3-pip
+      - ripgrep
   tags:
     - basic
 
