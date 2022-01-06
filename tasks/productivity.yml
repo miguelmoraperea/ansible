@@ -26,6 +26,7 @@
     name:
       - shutter
       - peek
+      - ranger
   tags:
     - productivity
 
