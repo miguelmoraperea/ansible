@@ -20,6 +20,7 @@
       - stow
       - python3-pip
       - ripgrep
+      - default-jre
   tags:
     - basic
 
